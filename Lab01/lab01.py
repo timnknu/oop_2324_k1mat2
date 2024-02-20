@@ -1,14 +1,12 @@
-
-
 class QuadraticEquation:
     def show(self):
         print(self.a, self.b)
 
-    def solve_eq(data):
-        D = data.b ** 2 - 4 * data.a * data.c
+    def solve_eq(self):
+        D = self.b ** 2 - 4 * self.a * self.c
         if D > 0:
-            x1 = (-data.b - D**0.5) / (2 * data.a)
-            x2 = (-data.b + D**0.5) / (2 * data.a)
+            x1 = (-self.b - D**0.5) / (2 * self.a)
+            x2 = (-self.b + D**0.5) / (2 * self.a)
             print(x1, x2)
         else:
             print('No solution')
