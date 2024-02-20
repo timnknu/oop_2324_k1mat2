@@ -16,3 +16,9 @@ eq.a = 1.0
 eq.b =-2.0
 eq.c = 0.5
 eq.solve_eq()
+
+second_eq = QuadraticEquation()
+second_eq.a = 1.0
+second_eq.b =-3.0
+second_eq.c = 1.5
+second_eq.solve_eq()
