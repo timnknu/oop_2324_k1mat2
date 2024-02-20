@@ -20,11 +20,7 @@ eq = QuadraticEquation(1.0, -2.0, 0.5)
 second_eq = QuadraticEquation(1.0, -3.0, 1.5)
 third_eq = QuadraticEquation(1.0, -3.0, 10.5)
 
-s = eq.solve_eq()
-print(s)
+for obj in [eq, second_eq, third_eq]:
+    s = obj.solve_eq()
+    print(s)
 
-s = second_eq.solve_eq()
-print(s)
-
-s = third_eq.solve_eq()
-print(s)
