@@ -3,6 +3,10 @@ class QuadraticEquation:
         self.a = coef_a
         self.b = coef_b
         self.c = coef_c
+
+    def show(self):
+        print(f'({self.a}) * x**2 + ({self.b}) * x + ({self.c}) = 0')
+
     def solve_eq(self):
         assert self.a != 0 # перевірка, чи дійсно рівняння квадратне
         D = self.b ** 2 - 4 * self.a * self.c
@@ -20,12 +24,10 @@ eq = QuadraticEquation(1.0, -2.0, 1.0) # 1 sol
 second_eq = QuadraticEquation(1.0, -3.0, 1.5) # 2 sol
 third_eq = QuadraticEquation(1.0, -3.0, 10.5)  # 0 sol
 
-def show(s):
-    print(f'({s.a}) * x**2 + ({s.b}) * x + ({s.c}) = 0')
 
 for obj in [eq, second_eq, third_eq]:
     s = obj.solve_eq()
     if len(s) == 1:
-        show(obj)
+        obj.show()
         print(s)
 
