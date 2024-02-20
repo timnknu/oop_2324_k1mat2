@@ -1,12 +1,9 @@
 class QuadraticEquation:
-    def show(self):
-        print(self.a, self.b)
-
-    def set_coefs(self, coef_a, coef_b, coef_c):
+    def __init__(self, coef_a, coef_b, coef_c):
+        print('The object is being created')
         self.a = coef_a
         self.b = coef_b
         self.c = coef_c
-
     def solve_eq(self):
         D = self.b ** 2 - 4 * self.a * self.c
         if D > 0:
@@ -16,12 +13,8 @@ class QuadraticEquation:
         else:
             print('No solution')
 
-eq = QuadraticEquation()
-eq.a = 1.0
-eq.b = -2.0
-eq.c = 0.5
+eq = QuadraticEquation(1.0, -2.0, 0.5)
 eq.solve_eq()
 
-second_eq = QuadraticEquation()
-second_eq.set_coefs(1.0, -3.0, 1.5)
+second_eq = QuadraticEquation(1.0, -3.0, 1.5)
 second_eq.solve_eq()
