@@ -16,11 +16,16 @@ class QuadraticEquation:
         else:
             return []
 
-eq = QuadraticEquation(1.0, -2.0, 0.5)
-second_eq = QuadraticEquation(1.0, -3.0, 1.5)
-third_eq = QuadraticEquation(1.0, -3.0, 10.5)
+eq = QuadraticEquation(1.0, -2.0, 1.0) # 1 sol
+second_eq = QuadraticEquation(1.0, -3.0, 1.5) # 2 sol
+third_eq = QuadraticEquation(1.0, -3.0, 10.5)  # 0 sol
+
+def show(s):
+    print(f'({s.a}) * x**2 + ({s.b}) * x + ({s.c}) = 0')
 
 for obj in [eq, second_eq, third_eq]:
     s = obj.solve_eq()
-    print(s)
+    if len(s) == 1:
+        show(obj)
+        print(s)
 
