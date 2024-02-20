@@ -4,6 +4,7 @@ class QuadraticEquation:
         self.b = coef_b
         self.c = coef_c
     def solve_eq(self):
+        assert self.a != 0 # перевірка, чи дійсно рівняння квадратне
         D = self.b ** 2 - 4 * self.a * self.c
         if D > 0:
             x1 = (-self.b - D**0.5) / (2 * self.a)
@@ -16,9 +17,14 @@ class QuadraticEquation:
             return []
 
 eq = QuadraticEquation(1.0, -2.0, 0.5)
+second_eq = QuadraticEquation(1.0, -3.0, 1.5)
+third_eq = QuadraticEquation(1.0, -3.0, 10.5)
+
 s = eq.solve_eq()
 print(s)
 
-second_eq = QuadraticEquation(1.0, -3.0, 1.5)
 s = second_eq.solve_eq()
+print(s)
+
+s = third_eq.solve_eq()
 print(s)
