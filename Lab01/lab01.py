@@ -17,7 +17,9 @@ class QuadraticEquation:
             print('No solution')
 
 eq = QuadraticEquation()
-eq.set_coefs(1.0, -2.0, 0.5)
+eq.a = 1.0
+eq.b = -2.0
+eq.c = 0.5
 eq.solve_eq()
 
 second_eq = QuadraticEquation()
