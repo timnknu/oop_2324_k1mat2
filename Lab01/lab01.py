@@ -1,6 +1,5 @@
 class QuadraticEquation:
     def __init__(self, coef_a, coef_b, coef_c):
-        print('The object is being created')
         self.a = coef_a
         self.b = coef_b
         self.c = coef_c
@@ -9,12 +8,17 @@ class QuadraticEquation:
         if D > 0:
             x1 = (-self.b - D**0.5) / (2 * self.a)
             x2 = (-self.b + D**0.5) / (2 * self.a)
-            print(x1, x2)
+            return [x1, x2]
+        elif abs(D) < 1e-10:
+            x = (-self.b) / (2 * self.a)
+            return [x]
         else:
-            print('No solution')
+            return []
 
 eq = QuadraticEquation(1.0, -2.0, 0.5)
-eq.solve_eq()
+s = eq.solve_eq()
+print(s)
 
 second_eq = QuadraticEquation(1.0, -3.0, 1.5)
-second_eq.solve_eq()
+s = second_eq.solve_eq()
+print(s)
