@@ -75,16 +75,8 @@ class Polynom:
 obj = Polynom()
 obj.read_form_file('input01.txt')
 
-d = {1: 10.0}
-obj.set_coefs(d)
-obj.show()
-d[2] = -1
-obj.show()
+second_term = Polynom()
+second_term.read_form_file('input02.txt')
 
-#second_term = Polynom()
-#second_term.read_form_file('input02.txt')
-
-
-
-#r = Polynom.add(obj, second_term)
-#r.show()
+r = Polynom.add(obj, second_term)
+r.show()
