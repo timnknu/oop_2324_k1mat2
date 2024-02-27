@@ -38,7 +38,17 @@ class Polynom:
     def show(self):
         print(self.__data)
 
+    def evaluate_at_x(self, x):
+        result = 0
+        for pwr, cf in self.__data.items():
+            result += x**pwr * cf
+        return result
+
+
+
 obj = Polynom()
-#obj.read_form_file('input01.txt')
-obj.read_from_keyboard()
-obj.show()
+obj.read_form_file('input01.txt')
+#obj.read_from_keyboard()
+r = obj.evaluate_at_x(0.5)
+print(r)
+#obj.show()
