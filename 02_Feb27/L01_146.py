@@ -1,4 +1,6 @@
 class Polynom:
+    def __init__(self):
+        self.__data = {}
     def read_form_file(self, file_name):
         self.__data = {}
         with open(file_name) as f:
