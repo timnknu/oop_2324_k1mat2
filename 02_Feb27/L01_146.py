@@ -4,7 +4,17 @@ with open('input01.txt') as f:
         rec = line.strip().split()
         if len(rec)>0:
             assert len(rec)==2
-            pwr = int(rec[0])
+            try:
+                pwr = int(rec[0])
+            except:
+                print("Wrong power", rec[0])
+                continue
             assert pwr >= 0
-            coef = float(rec[1])
-            print(pwr, coef)
+            try:
+                coef = float(rec[1])
+            except:
+                print("Wrong coef", rec[1])
+                continue
+            assert pwr not in data
+            data[pwr] = coef
+print(data)
