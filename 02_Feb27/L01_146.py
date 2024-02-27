@@ -1,7 +1,7 @@
 class Polynom:
     def __init__(self):
         self.__data = {}
-    def process_line(self, line):
+    def _process_line(self, line):
         rec = line.split()
         if len(rec) > 0:
             assert len(rec) == 2
@@ -23,12 +23,22 @@ class Polynom:
         self.__data = {}
         with open(file_name) as f:
             for line in f:
-                self.process_line( line.strip() )
+                self._process_line( line.strip() )
+    #
+    def read_from_keyboard(self):
+        self.__data = {}
+        print("Input powers & coefs, or empty line to stop")
+        while True:
+            s = input()
+            if s == "":
+                break
+            self._process_line( s )
 
     #
     def show(self):
         print(self.__data)
 
 obj = Polynom()
-obj.read_form_file('input01.txt')
+#obj.read_form_file('input01.txt')
+obj.read_from_keyboard()
 obj.show()
