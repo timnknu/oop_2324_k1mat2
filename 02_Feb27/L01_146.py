@@ -1,6 +1,6 @@
 class Polynom:
     def read_form_file(self, file_name):
-        self.data = {}
+        self.__data = {}
         with open(file_name) as f:
             for line in f:
                 rec = line.strip().split()
@@ -17,10 +17,12 @@ class Polynom:
                     except:
                         print("Wrong coef", rec[1])
                         continue
-                    assert pwr not in self.data
-                    self.data[pwr] = coef
+                    assert pwr not in self.__data
+                    self.__data[pwr] = coef
     #
+    def show(self):
+        print(self.__data)
 
 obj = Polynom()
 obj.read_form_file('input01.txt')
-print(obj.data)
+obj.show()
