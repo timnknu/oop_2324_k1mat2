@@ -1,3 +1,4 @@
+import copy
 class Polynom:
     def __init__(self):
         self._data = {}
@@ -52,6 +53,11 @@ class Polynom:
         else:
             return 0.0
 
+    # setter for coefs
+    def set_coefs(self, coefs_dict):
+        assert isinstance(coefs_dict, dict)
+        self._data = coefs_dict.copy()
+
     @staticmethod
     def add(p1, p2):
         r = {}
@@ -60,10 +66,8 @@ class Polynom:
         for pw in set(powers1) | set(powers2):
             cf = p1.get_coef(pw) + p2.get_coef(pw)
             r[pw] = cf
-        #
-        #print(r)
         rslt = Polynom()
-        rslt._data = r
+        rslt.set_coefs(r)
         return rslt
     #
 
@@ -71,8 +75,16 @@ class Polynom:
 obj = Polynom()
 obj.read_form_file('input01.txt')
 
-second_term = Polynom()
-second_term.read_form_file('input02.txt')
+d = {1: 10.0}
+obj.set_coefs(d)
+obj.show()
+d[2] = -1
+obj.show()
 
-r = Polynom.add(obj, second_term)
-r.show()
+#second_term = Polynom()
+#second_term.read_form_file('input02.txt')
+
+
+
+#r = Polynom.add(obj, second_term)
+#r.show()
