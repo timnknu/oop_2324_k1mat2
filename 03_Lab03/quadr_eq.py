@@ -19,3 +19,6 @@ class QuadraticEquation(Equation):
                 return (x, )
             else:
                 return Equation.NO_SOLS
+
+#e = QuadraticEquation(1, -4, -3)
+#e = QuadraticEquation(1, -2, 1)
