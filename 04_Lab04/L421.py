@@ -15,11 +15,8 @@ class Figure:
     def set_color(self, clr):
         self._color = clr
     def draw(self):
-        # має якось врахувати self._color
-        turtle.up()
-        turtle.goto(*self._position)
-        turtle.down()
-        turtle.circle(50)
+        raise Exception("Don't call this method!")
+        pass
     def show(self):
         if not self._visible:
             # намалювати фігуру
@@ -33,6 +30,13 @@ class Figure:
             turtle.pencolor(bgc)
             self.draw()
             self._visible = False
+
+class Circle(Figure):
+    def draw(self):
+        turtle.up()
+        turtle.goto(*self._position)
+        turtle.down()
+        turtle.circle(50)
 
 class Triangle(Figure):
     def draw(self):
@@ -48,7 +52,11 @@ class Triangle(Figure):
         turtle.forward(side_len)
 
 if __name__ == "__main__":
-    fg = Triangle()
+    #obj = Figure()
+    #obj.show() # буде помилка
+
+    #fg = Triangle()
+    fg = Circle()
     fg.show()
     fg.hide()
 
