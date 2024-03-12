@@ -1,3 +1,6 @@
+#import runpy
+#runpy.run_module('turtledemo')['main']()
+
 import turtle
 
 turtle.goto(0, -100)
