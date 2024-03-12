@@ -52,15 +52,14 @@ class Triangle(Figure):
         turtle.forward(side_len)
 
 if __name__ == "__main__":
-    #obj = Figure()
-    #obj.show() # буде помилка
+    fg1 = Triangle()
+    fg2 = Circle()
+    fg2.set_position(-150,0)
+    fg3 = Circle()
+    fg3.set_position(150,0)
+    figs = [fg1, fg2, fg3]
 
-    #fg = Triangle()
-    fg = Circle()
-    fg.show()
-    fg.hide()
-
-    fg.set_position(50, 80)
-    fg.show()
+    for obj in figs:
+        obj.show()
 
     turtle.exitonclick()
