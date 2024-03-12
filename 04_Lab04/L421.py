@@ -1,3 +1,2 @@
-
-# import runpy
-# runpy.run_module('turtledemo')['main']()
+import runpy
+runpy.run_module('turtledemo')['main']()
