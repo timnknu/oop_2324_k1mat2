@@ -1,18 +1,45 @@
+import turtle
+
+
 class Figure:
     def __init__(self):
         self._position = [0, 0]
         self._visible = False
-
+        self._color = 'forest green'
     def set_position(self, x, y):
         self._position = [x, y]
     def get_position(self):
         return self._position
     def is_visible(self):
         return self._visible
+    def set_color(self, clr):
+        self._color = clr
+    def draw(self):
+        # має якось врахувати self._color
+        turtle.up()
+        turtle.goto(*self._position)
+        turtle.down()
+        turtle.circle(50)
     def show(self):
         if not self._visible:
-            pass # TODO: намалювати фігуру
+            # намалювати фігуру
+            turtle.pencolor(self._color)
+            self.draw()
+            self._visible = True
     def hide(self):
         if self._visible:
-            pass # TODO: прибрати фігуру
+            # стерти -- намалювати кольором фону
+            bgc = turtle.bgcolor()
+            turtle.pencolor(bgc)
+            self.draw()
+            self._visible = False
 
+if __name__ == "__main__":
+    fg = Figure()
+    fg.show()
+    fg.hide()
+
+    fg.set_position(50, 80)
+    fg.show()
+
+    turtle.exitonclick()
