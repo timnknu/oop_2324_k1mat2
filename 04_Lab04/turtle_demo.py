@@ -1,13 +1,11 @@
 import turtle
 
 turtle.goto(0, -100)
-
-#turtle.pencolor('#376edc')
-turtle.pencolor('forest green')
+#turtle.delay(0)
+turtle.speed(0) # 'fastest'
 for a in range(0, 270, 20):
     turtle.down()
-    turtle.setheading(a)
-    turtle.forward(50)
+    turtle.circle(a)
     turtle.up()
 
 #turtle.mainloop()
