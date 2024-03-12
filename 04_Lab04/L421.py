@@ -34,8 +34,21 @@ class Figure:
             self.draw()
             self._visible = False
 
+class Triangle(Figure):
+    def draw(self):
+        side_len = 50
+        turtle.up()
+        turtle.goto( * self._position )
+        turtle.down()
+        turtle.setheading(0)
+        turtle.forward(side_len)
+        turtle.setheading(120)
+        turtle.forward(side_len)
+        turtle.setheading(240)
+        turtle.forward(side_len)
+
 if __name__ == "__main__":
-    fg = Figure()
+    fg = Triangle()
     fg.show()
     fg.hide()
 
