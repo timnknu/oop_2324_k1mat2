@@ -4,7 +4,7 @@ class Vector:
     def __init__(self, n):
         if isinstance(n, Vector):
             self._data = copy.deepcopy(n._data)
-        if isinstance(n, list):
+        elif isinstance(n, list):
             self._data = copy.deepcopy(n)
         else:
             assert type(n) is int
@@ -38,11 +38,18 @@ class Vector:
     def __radd__(self, other):
         #return self.__add__(other)
         return self + other
+    def __mul__(self, other):
+        res = Vector(self)
+        assert (type(other) is int or type(other) is float)
+        for i in range(len(self)):
+            res[i] *= other
+        return res
+
 
 #a = Vector(3)
 #a[:] = [1,2,3]
 a = Vector([7,8,9])
-b = 1+ a
+b = 1+ a*2
 print(b)
 
 # a._data[0] = 1.2
