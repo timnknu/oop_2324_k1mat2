@@ -33,11 +33,13 @@ class Vector:
         return self._data[j]
     def __setitem__(self, j, val):
         self._data[j] = val
+    def __len__(self):
+        return 999
 
 #a = Vector(3)
 #a[:] = [1,2,3]
 a = Vector([7,8,9])
-print(a)
+print(len(a))
 
 # a._data[0] = 1.2
 # b = a + 9
