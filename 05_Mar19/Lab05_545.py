@@ -16,7 +16,7 @@ class Vector:
         for elem in self._data:
             comp_list.append(str(elem))
         s = ', '.join(comp_list)
-        return s
+        return '{' + s + '}'
     def __add__(self, other):
         res = Vector(len(self._data))
         if isinstance(other, Vector):
@@ -52,10 +52,9 @@ class Vector:
 row1 = Vector([7,8,9])
 
 print(row1)
-# row2 = Vector([1,2,3])
-# row3 = Vector([-2,1,0])
-#
-# m = Vector([row1, row2, row3])
+row2 = Vector([1,2,3])
+row3 = Vector([-2,1,0])
+m = Vector([row1, row2, row3])
 
-#print(m)
+print(m)
 
