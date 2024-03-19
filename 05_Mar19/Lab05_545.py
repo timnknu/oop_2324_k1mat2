@@ -27,10 +27,12 @@ class Vector:
             for i in range(len(self._data)):
                 res._data[i] = self._data[i] + other
             return res
-
-
+    def __getitem__(self, j):
+        print('getting item', j)
+        return -100
 
 a = Vector(3)
-a._data[0] = 1.2
-b = a + 9
-print(b)
+print(a[0:100:2])
+
+# a._data[0] = 1.2
+# b = a + 9
