@@ -44,6 +44,8 @@ class Vector:
         for i in range(len(self)):
             res[i] *= other
         return res
+    def __rmul__(self, other):
+        return self * other
 
 
 row1 = Vector([7,8,9])
@@ -52,6 +54,9 @@ print(row1)
 row2 = Vector([1,2,3])
 row3 = Vector([-2,1,0])
 m = Vector([row1, row2, row3])
-
-print(m)
+#p = m + 10
+#p = 10 + m
+#p = m * 2.0
+p = 2.0 * m
+print(p)
 
