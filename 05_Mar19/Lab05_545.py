@@ -36,8 +36,8 @@ class Vector:
     def __len__(self):
         return len(self._data)
     def __radd__(self, other):
-        print('radd', other)
-        return -100
+        #return self.__add__(other)
+        return self + other
 
 #a = Vector(3)
 #a[:] = [1,2,3]
