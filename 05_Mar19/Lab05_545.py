@@ -34,7 +34,7 @@ class Vector:
     def __setitem__(self, j, val):
         self._data[j] = val
     def __len__(self):
-        return 999
+        return len(self._data)
 
 #a = Vector(3)
 #a[:] = [1,2,3]
