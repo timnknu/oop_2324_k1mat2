@@ -46,12 +46,13 @@ class Vector:
         return res
 
 
-#a = Vector(3)
-#a[:] = [1,2,3]
-a = Vector([7,8,9])
-b = 1+ a*2
-print(b)
+row1 = Vector([7,8,9])
+row2 = Vector([1,2,3])
+row3 = Vector([-2,1,0])
 
-# a._data[0] = 1.2
-# b = a + 9
+m = Vector([row1, row2, row3])
 
+#print(m)
+
+s = '$$'.join(['yabc', str(1), 'hhh', 'xk'])
+print(s)
