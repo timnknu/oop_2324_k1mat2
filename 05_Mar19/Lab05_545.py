@@ -4,6 +4,8 @@ class Vector:
     def __init__(self, n):
         if isinstance(n, Vector):
             self._data = copy.deepcopy(n._data)
+        if isinstance(n, list):
+            self._data = copy.deepcopy(n)
         else:
             assert type(n) is int
             assert n>0
@@ -32,11 +34,11 @@ class Vector:
     def __setitem__(self, j, val):
         self._data[j] = val
 
-a = Vector(3)
-a[0] = 50
-a[1] = 4.5
-a[2] = 0.5
+#a = Vector(3)
+#a[:] = [1,2,3]
+a = Vector([7,8,9])
 print(a)
 
 # a._data[0] = 1.2
 # b = a + 9
+
