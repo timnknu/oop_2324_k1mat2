@@ -30,11 +30,13 @@ class Vector:
     def __getitem__(self, j):
         return self._data[j]
     def __setitem__(self, j, val):
-        print('setting', j, val)
+        self._data[j] = val
 
 a = Vector(3)
-a['world'] = 50
-print(a[0])
+a[0] = 50
+a[1] = 4.5
+a[2] = 0.5
+print(a)
 
 # a._data[0] = 1.2
 # b = a + 9
