@@ -35,11 +35,14 @@ class Vector:
         self._data[j] = val
     def __len__(self):
         return len(self._data)
+    def __radd__(self, other):
+        print('radd', other)
+        return -100
 
 #a = Vector(3)
 #a[:] = [1,2,3]
 a = Vector([7,8,9])
-b = a + 1 + a
+b = 1+ a
 print(b)
 
 # a._data[0] = 1.2
