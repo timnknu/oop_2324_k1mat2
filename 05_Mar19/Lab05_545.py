@@ -17,17 +17,17 @@ class Vector:
     def __add__(self, other):
         res = Vector(len(self._data))
         if isinstance(other, Vector):
-            assert len(self._data) == len(other._data)
-            for i in range(len(self._data)):
-                res._data[i] = self._data[i] + other._data[i]
+            assert len(self) == len(other)
+            for i in range(len(self)):
+                res[i] = self[i] + other[i]
             # альтернативна реалізація:
             #res = Vector(self)
             #for i in range(len(self._data)):
             #   res._data[i] += other._data[i]
             return res
         else:
-            for i in range(len(self._data)):
-                res._data[i] = self._data[i] + other
+            for i in range(len(self)):
+                res[i] = self[i] + other
             return res
     def __getitem__(self, j):
         return self._data[j]
@@ -39,7 +39,8 @@ class Vector:
 #a = Vector(3)
 #a[:] = [1,2,3]
 a = Vector([7,8,9])
-print(len(a))
+b = a + 1 + a
+print(b)
 
 # a._data[0] = 1.2
 # b = a + 9
