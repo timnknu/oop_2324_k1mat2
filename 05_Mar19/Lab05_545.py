@@ -11,10 +11,7 @@ class Vector:
             assert n>0
             self._data = [0.0]*n
     def __str__(self):
-        #s = '{'
-        comp_list = []
-        for elem in self._data:
-            comp_list.append(str(elem))
+        comp_list = map(str, self._data)
         s = ', '.join(comp_list)
         return '{' + s + '}'
     def __add__(self, other):
