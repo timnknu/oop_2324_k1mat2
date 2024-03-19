@@ -12,7 +12,10 @@ class Vector:
             self._data = [0.0]*n
     def __str__(self):
         #s = '{'
-        s = str(self._data)
+        comp_list = []
+        for elem in self._data:
+            comp_list.append(str(elem))
+        s = ', '.join(comp_list)
         return s
     def __add__(self, other):
         res = Vector(len(self._data))
@@ -47,12 +50,12 @@ class Vector:
 
 
 row1 = Vector([7,8,9])
-row2 = Vector([1,2,3])
-row3 = Vector([-2,1,0])
 
-m = Vector([row1, row2, row3])
+print(row1)
+# row2 = Vector([1,2,3])
+# row3 = Vector([-2,1,0])
+#
+# m = Vector([row1, row2, row3])
 
 #print(m)
 
-s = '$$'.join(['yabc', str(1), 'hhh', 'xk'])
-print(s)
