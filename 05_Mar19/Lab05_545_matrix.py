@@ -75,16 +75,16 @@ class Matrix(Vector):
 
             minor = tmp()
             return minor
+    #
 
 
-        print(a)
-        return -100
-
-row1 = Vector([7,8,9])
-row2 = Vector([1,2,3])
-row3 = Vector([-2,-1,0])
+row1 = Vector([2,-3,1])
+row2 = Vector([2,0,-1])
+row3 = Vector([1,4,5])
 m = Matrix([row1, row2, row3])
-print(m)
 
-result = m( (2,1) )
+#row1 = Vector([2, 3])
+#row2 = Vector([1, 5])
+#m = Matrix([row1, row2])
+result = m()
 print(result)
