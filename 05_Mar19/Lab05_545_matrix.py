@@ -41,7 +41,9 @@ class Vector:
         return self + other
     def __mul__(self, other):
         #res = Vector(self)
-        res = copy.deepcopy(self)
+        #res = copy.deepcopy(self)
+        C = type(self)
+        res = C(self)
         assert (type(other) is int or type(other) is float)
         for i in range(len(self)):
             res[i] *= other
