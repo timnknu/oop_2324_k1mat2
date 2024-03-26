@@ -56,8 +56,14 @@ class Matrix(Vector):
         super().__init__(n)
     def __call__(self, a = None):
         if a is None:
+            if len(self)==1:
+                return self[0][0]
             # розкриття по стовпцю або рядку
-            pass
+            det = 0
+            for i in range(len(self)):
+                #det += (-1)**(0+1 + i+1) * self[0][i] * self( (0,i) )
+                det += (-1) ** i * self[0][i] * self((0, i))
+            return det
         else:
             i,j = a
             # наприклад, якщо a = (1,2), то стане i==1, j==2
