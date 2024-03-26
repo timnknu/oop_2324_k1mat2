@@ -34,6 +34,8 @@ class Vector:
         return self._data[j]
     def __setitem__(self, j, val):
         self._data[j] = val
+    def __delitem__(self, j):
+        del self._data[j]
     def __len__(self):
         return len(self._data)
     def __radd__(self, other):
@@ -52,14 +54,31 @@ class Matrix(Vector):
     SEP = '\n'
     def __init__(self, n):
         super().__init__(n)
-    def __call__(self, a):
+    def __call__(self, a = None):
+        if a is None:
+            # розкриття по стовпцю або рядку
+            pass
+        else:
+            i,j = a
+            # наприклад, якщо a = (1,2), то стане i==1, j==2
+            tmp = Matrix(self) # або через copy.deepcopy(self)
+            for k in range(len(self)):
+                row = tmp[k]
+                del row[j]
+            del tmp[i]
+
+            minor = tmp()
+            return minor
+
+
         print(a)
         return -100
 
 row1 = Vector([7,8,9])
 row2 = Vector([1,2,3])
-row3 = Vector([-2,1,0])
+row3 = Vector([-2,-1,0])
 m = Matrix([row1, row2, row3])
+print(m)
 
-result = m('he')
+result = m( (2,1) )
 print(result)
