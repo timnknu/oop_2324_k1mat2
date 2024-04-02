@@ -3,16 +3,18 @@ class Extractor: # iterator
         self._collection_owner = parent
         self._k = 0
     def __next__(self):
+        j = self._k // 2
         if self._k % 2 == 0: # гравець A
-            j = self._k//2
+            if j >= len(self._collection_owner._lstA):
+                raise StopIteration
             res = self._collection_owner._lstA[j]
-            self._k += 1
-            return res
         else:  # self._k % 2 == 1 -- гравець B
-            j = self._k//2
+            if j >= len(self._collection_owner._lstB):
+                raise StopIteration
             res = self._collection_owner._lstB[j]
-            self._k += 1
-            return res
+        #
+        self._k += 1
+        return res
 
 class MyClass: # iteratable
     def __init__(self, lstA, lstB):
