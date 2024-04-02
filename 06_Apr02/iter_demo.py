@@ -1,21 +1,25 @@
-class ElementExtractor:
-    def __init__(self):
+class ElementExtractor: # iterator -- ітератор
+    def __init__(self, maxn):
         self._index = 0
+        self._max_n = maxn
+
     def __next__(self):
         print('__next__ called from ElementExtractor')
         self._index += 1
-        if self._index > 10:
+        if self._index > self._max_n:
             raise StopIteration
         return self._index ** 2
 
-class MyClass:
+class MyClass: # iteratable -- ітерований об'єкт
+    def __init__(self, n):
+        self._maxnum = n
     def __iter__(self):
         print('__iter__ is called')
-        itrobj = ElementExtractor()
+        itrobj = ElementExtractor(self._maxnum)
         return itrobj # має існувати itrobj.__next__()
 
 if __name__ == "__main__":
-    obj = MyClass()
+    obj = MyClass(5)
 
     for el in obj: # b1 = iter(obj)
         print(el)
