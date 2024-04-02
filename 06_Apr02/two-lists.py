@@ -1,13 +1,25 @@
-class Extractor:
+class Extractor: # iterator
+    def __init__(self, parent):
+        self._collection_owner = parent
+        self._k = 0
     def __next__(self):
-        return -10
+        if self._k % 2 == 0: # гравець A
+            j = self._k//2
+            res = self._collection_owner._lstA[j]
+            self._k += 1
+            return res
+        else:  # self._k % 2 == 1 -- гравець B
+            j = self._k//2
+            res = self._collection_owner._lstB[j]
+            self._k += 1
+            return res
 
-class MyClass:
+class MyClass: # iteratable
     def __init__(self, lstA, lstB):
         self._lstA = lstA
         self._lstB = lstB
     def __iter__(self):
-        itr = Extractor()
+        itr = Extractor(self) # self - об'єкт класу MyClass, в якому обидва списки вже містяться
         return itr
 
 if __name__ == "__main__":
