@@ -4,6 +4,8 @@ class ElementExtractor:
     def __next__(self):
         print('__next__ called from ElementExtractor')
         self._index += 1
+        if self._index > 10:
+            raise StopIteration
         return self._index ** 2
 
 class MyClass:
