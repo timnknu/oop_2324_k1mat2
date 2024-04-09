@@ -10,12 +10,8 @@ def etgen(x, eps):
 x = 0.12
 v = etgen(x, 1e-5)
 s = 0
-for el in v:
+for k, el in enumerate(v):
     s += el
-    print(el)
+    print(k, ':', el)
 print('sum is', s)
 
-print(sum(v))
-
-v = etgen(x, 1e-5)
-print(sum(v))
