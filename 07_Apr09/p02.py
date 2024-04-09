@@ -12,10 +12,8 @@ N = 10
 v = etgen(x)
 k = 0
 b = zip([1,2], ['A', 'X', '?'])
-trt = iter(b)
-print(next(trt))
-print(next(trt))
-print(next(trt))
+for elem in b:
+    print(elem)
 # for el in v:
 #     k += 1
 #     if k > 10:
