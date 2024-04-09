@@ -10,8 +10,8 @@ def etgen(x):
 x = 0.12
 N = 10
 v = etgen(x)
-k = 0
-for elem in zip([1,2, 100500, -1], v):
+for elem in zip(range(1, N+1), v):
+    #k, an = elem
     print(elem)
 # for el in v:
 #     k += 1
