@@ -11,8 +11,7 @@ x = 0.12
 N = 10
 v = etgen(x)
 k = 0
-b = zip([1,2], ['A', 'X', '?'])
-for elem in b:
+for elem in zip([1,2, 100500, -1], v):
     print(elem)
 # for el in v:
 #     k += 1
