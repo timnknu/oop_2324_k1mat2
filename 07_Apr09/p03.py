@@ -1,3 +1,5 @@
+import math
+
 def etgen(x, eps):
     a = 1.0
     yield a
@@ -7,11 +9,8 @@ def etgen(x, eps):
         n += 1
         yield a
 #
-x = 0.12
+x = 10.12
 v = etgen(x, 1e-5)
-s = 0
-for k, el in enumerate(v):
-    s += el
-    print(k, ':', el)
+s = sum(v)
 print('sum is', s)
-
+print(math.exp(x))
