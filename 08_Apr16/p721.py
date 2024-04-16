@@ -7,12 +7,10 @@ class ProtectedDictIntGeneralError(KeyError):
     def __str__(self):
         s = f"ключ {self._useful_info} є помилковим"
         return s
-
 class NonIntegerKeyError(ProtectedDictIntGeneralError):
     def __str__(self):
         s = f"ключ {self._useful_info} із NonIntegerKeyError"
         return s
-
 class KeyAlreadyExistsError(ProtectedDictIntGeneralError):
     def __str__(self):
         s = f"ключ {self._useful_info} із KeyAlreadyExistsError"
@@ -35,8 +33,15 @@ class ProtectedDictInt:
                 raise KeyAlreadyExistsError(key)
         else:
             raise NonIntegerKeyError(key)
+    #def __getattr__(self, item):
+    #    return -158
+    #def __setattr__(self, key, value):
+    #    pass
 
 d = ProtectedDictInt()
+
+#setattr(d, 'hello', -15)
+#print(d.hello)
 
 try:
     d[1] = 12.0
