@@ -40,10 +40,15 @@ d = ProtectedDictInt()
 
 try:
     d[1] = 12.0
-    d[2.0] = -100500 #/0
+    #d[2.0] = -100500 #/0
     d[1] = -8
     print('---')
-except ProtectedDictIntGeneralError as e:
-    print('виникла помилка', e)
+except NonIntegerKeyError as e:
+    print('помилка:', e)
+except KeyAlreadyExistsError as e:
+    print('негаразд:', e)
+
+
+
 
 print(d)
