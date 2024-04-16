@@ -1,3 +1,5 @@
+import traceback
+
 class ProtectedDictIntError(KeyError):
     def __init__(self, a):
         super().__init__(a)
@@ -24,12 +26,20 @@ class ProtectedDictInt:
 
 d = ProtectedDictInt()
 
+#d[2.0] = -100500
+
 try:
     d[1] = 12.0
-    d[2.0] = -100500
+    d[2.0] = -100500 #/0
     print('---')
 except ProtectedDictIntError as e:
     print('виникла помилка', e)
+    s = traceback.format_exc()
+    print('---')
+    print(e._useful_info)
+    print(e.__traceback__.tb_lineno)
+    print('---')
+    print('старе повідомлення про помилку -', s)
     pass
 except ZeroDivisionError:
     print('Ділити на нуль не можна!')
