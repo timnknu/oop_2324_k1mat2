@@ -19,7 +19,10 @@ class ProtectedDictInt:
         if isinstance(key, int):
         # if type(key) is int: # альтернативна перевірка
             # в key -- ціле число => це допутисмий ключ
-            self._data[key] = value
+            if key not in self._data:
+                self._data[key] = value
+            else:
+                print('помилка типу 2')
         else:
             obj = ProtectedDictIntError(key)
             raise obj
@@ -30,7 +33,8 @@ d = ProtectedDictInt()
 
 try:
     d[1] = 12.0
-    d[2.0] = -100500 #/0
+    #d[2.0] = -100500 #/0
+    d[1] = -8
     print('---')
 except ProtectedDictIntError as e:
     print('виникла помилка', e)
