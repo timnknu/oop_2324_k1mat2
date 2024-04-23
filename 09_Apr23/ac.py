@@ -5,6 +5,12 @@ class SequenceAnalyzer(metaclass=ABCMeta):
     def terms_gen(self):
         pass
     #
+    def print_elems(self):
+        for j, (k, ak) in enumerate(self.terms_gen()):
+            if j > 10:
+                break
+            print(f"a_{k} = {ak}")
+
     def print_minmax(self):
         max_val = None # ініціалізація одним способом
         for j, (k, ak) in enumerate(self.terms_gen()):
@@ -34,4 +40,5 @@ class SinSeq(SequenceAnalyzer):
 
 
 s = SinSeq()
-s.print_minmax()
+#s.print_minmax()
+s.print_elems()
