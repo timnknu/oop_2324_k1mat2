@@ -1,7 +1,13 @@
 from abc import ABCMeta, abstractmethod
 import math
 
-class SequenceAnalyzer(metaclass=ABCMeta):
+# інтерфейс
+class Evaluatable(metaclass=ABCMeta):
+    @abstractmethod
+    def eval(self, x):
+        pass
+
+class SequenceAnalyzer(Evaluatable, metaclass=ABCMeta):
     @abstractmethod
     def terms_gen(self):
         pass
@@ -78,11 +84,12 @@ def print_table(objs, a=0, b=1, npoints=10):
         print()
 #
 
-class ExactSin:
+
+class ExactSin(Evaluatable):
     def eval(self, x):
         return math.sin(x)
 
-class ExactCos:
+class ExactCos(Evaluatable):
     def eval(self, x):
         return math.cos(x)
 
