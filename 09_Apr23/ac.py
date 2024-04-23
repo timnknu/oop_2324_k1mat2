@@ -7,7 +7,7 @@ class Evaluatable(metaclass=ABCMeta):
     def eval(self, x):
         pass
 
-class SequenceAnalyzer(Evaluatable, metaclass=ABCMeta):
+class SequenceAnalyzer(metaclass=ABCMeta):
     @abstractmethod
     def terms_gen(self):
         pass
@@ -34,6 +34,12 @@ class SequenceAnalyzer(Evaluatable, metaclass=ABCMeta):
         print("min =", min_val)
         print("max =", max_val)
     #
+
+
+class EvalTaylorSeries:
+    @abstractmethod
+    def terms_gen(self):
+        pass
     def eval(self, x):
         eps = 1e-5  # те саме, що і 10**(-5)
         sm = 0
@@ -45,7 +51,8 @@ class SequenceAnalyzer(Evaluatable, metaclass=ABCMeta):
         return sm
 
 
-class SinSeq(SequenceAnalyzer):
+
+class SinSeq(SequenceAnalyzer, EvalTaylorSeries, Evaluatable):
     def terms_gen(self):
         a = 1
         n = 1
@@ -56,7 +63,7 @@ class SinSeq(SequenceAnalyzer):
             yield (n, a)
         #
     #
-class CosSeq(SequenceAnalyzer):
+class CosSeq(SequenceAnalyzer, EvalTaylorSeries, Evaluatable):
     def terms_gen(self):
         a = 1
         n = 0
@@ -80,7 +87,10 @@ def print_table(objs, a=0, b=1, npoints=10):
         x = a + (i-1)*s
         print(f"x_{i} = {x} ->", end='')
         for f in objs:
-            print(f.eval(x), end=' | ')
+            if isinstance(f, Evaluatable):
+                print(f.eval(x), end=' | ')
+            else:
+                print('<not Evaluatable>', end=' | ')
         print()
 #
 
@@ -99,7 +109,9 @@ c = CosSeq()
 print(c.eval(1.0))
 print(math.cos(1.0))
 print('---')
-print_table([c, ExactCos()], a=-1, b=1)
+print_table([c, ExactCos()], a=-1, b=1) # працює
+print('---')
+print_table([c, math.cos], a=-1, b=1)  # файтично не працює, але аварійно не завершується
 
 #
 # s = SinSeq()
