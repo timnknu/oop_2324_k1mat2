@@ -1,5 +1,5 @@
 import tkinter as tk
-import tkinter.font as tkFont
+import tkinter.messagebox
 
 class App:
     def __init__(self, root):
@@ -36,8 +36,12 @@ class App:
 
 
     def stop_onclick(self):
-        print("bbbb")
-        print(self.s.get())
+        ans = tk.messagebox.askquestion(title="питання",
+                                        message="Значення:" + self.s.get(),
+                                        type=tkinter.messagebox.YESNO)
+        print(ans)
+
+
 
 if __name__ == "__main__":
     root = tk.Tk()
