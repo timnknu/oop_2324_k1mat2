@@ -14,27 +14,30 @@ class App:
         root.geometry(alignstr)
         root.resizable(width=False, height=False)
 
-        GButton_353 = tk.Button(root, text = "Старт",
-                                command = self.GButton_353_command
+        start_btn = tk.Button(root, text = "Старт",
+                                command = self.start_onlick
                                 )
-        GButton_353.place(x=60,y=140,width=111,height=54)
+        start_btn.place(x=60,y=140,width=111,height=54)
 
         GLabel_119=tk.Label(root, text = "Кількість секунд")
         GLabel_119.place(x=30,y=50,width=70,height=25)
 
-        GButton_925=tk.Button(root, text = "Стоп",
-                              command = self.GButton_925_command)
-        GButton_925.place(x=280,y=160,width=70,height=25)
+        stop_btn=tk.Button(root, text = "Стоп",
+                           command = self.stop_onclick)
+        stop_btn.place(x=280,y=160,width=70,height=25)
 
-        GLineEdit_759=tk.Entry(root)
+        self.s = tk.StringVar()
+        GLineEdit_759 = tk.Entry(root, textvariable=self.s)
         GLineEdit_759.place(x=170,y=50,width=70,height=25)
 
-    def GButton_353_command(self):
+    def start_onlick(self):
         print("AAAAA")
+        self.s.set("HELLO!!!!!")
 
 
-    def GButton_925_command(self):
+    def stop_onclick(self):
         print("bbbb")
+        print(self.s.get())
 
 if __name__ == "__main__":
     root = tk.Tk()
