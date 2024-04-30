@@ -38,8 +38,11 @@ class App:
             ans = tk.messagebox.askquestion(title="питання",
                                            message="Точно зупинити відлік часу???",
                                            type=tkinter.messagebox.YESNO)
-            print(ans)
-            return
+            #print(ans)
+            if ans == 'yes':
+                return
+            else:
+                self.is_active = True
         #
 
         old_text = self.s.get()
