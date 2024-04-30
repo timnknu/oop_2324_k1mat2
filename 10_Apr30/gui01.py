@@ -29,17 +29,43 @@ class App:
         self.s = tk.StringVar()
         GLineEdit_759 = tk.Entry(root, textvariable=self.s)
         GLineEdit_759.place(x=170,y=50,width=70,height=25)
+        self.s.set("5")
+        #
+        self.is_active = False
+
+    def on_timer(self):
+        if not self.is_active:
+            ans = tk.messagebox.askquestion(title="питання",
+                                           message="Точно зупинити відлік часу???",
+                                           type=tkinter.messagebox.YESNO)
+            print(ans)
+            return
+        #
+
+        old_text = self.s.get()
+        old_value = int(old_text)
+        if old_value == 0:
+            tk.messagebox.showwarning(title="ура", message="таймер готовий")
+            return # перериваємо виконання методу
+        #
+
+        new_s = str(old_value-1)
+        self.s.set(new_s)
+        root.after(1000, self.on_timer) # плануємо виклик цього ж метода в майбутньому через 1 с
 
     def start_onlick(self):
-        print("AAAAA")
-        self.s.set("HELLO!!!!!")
+        #print("AAAAA")
+        #self.s.set("HELLO!!!!!")
+        self.is_active = True
+        root.after(1000, self.on_timer)
 
 
     def stop_onclick(self):
-        ans = tk.messagebox.askquestion(title="питання",
-                                        message="Значення:" + self.s.get(),
-                                        type=tkinter.messagebox.YESNO)
-        print(ans)
+        self.is_active = False
+        #ans = tk.messagebox.askquestion(title="питання",
+        #                                message="Значення:" + self.s.get(),
+        #                                type=tkinter.messagebox.YESNO)
+        #print(ans)
 
 
 
